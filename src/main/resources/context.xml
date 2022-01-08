@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- bean definitions here -->
+<!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
+
+    <context:component-scan base-package="ru.gb.lesson2"/>
+
+    <bean class="ru.gb.lesson2.hello.WantMessageProvider" id="provider"/>
+
+    <bean class="ru.gb.lesson2.hello.ConsoleMessageRender" id="render">
+        <property name="messageProvider" ref="provider"/>
+<!--        <constructor-arg name="messageProvider" ref="provider"/>-->
+    </bean>
+
+<!--    <bean class="ru.gb.lesson2.hello.InjectFoodStuffAnnotationBeanPostProcessor"/>-->
+
+</beans>
