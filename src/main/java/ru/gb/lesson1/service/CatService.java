@@ -1,6 +1,6 @@
-package ru.gb.service;
+package ru.gb.lesson1.service;
 
-import ru.gb.entity.Cat;
+import ru.gb.lesson1.entity.Cat;
 
 import java.util.Arrays;
 import java.util.List;

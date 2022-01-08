@@ -1,6 +1,6 @@
-package ru.gb.servlet;
+package ru.gb.lesson1.servlet;
 
-import ru.gb.service.CatService;
+import ru.gb.lesson1.service.CatService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

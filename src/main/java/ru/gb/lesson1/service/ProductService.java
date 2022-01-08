@@ -1,6 +1,6 @@
-package ru.gb.service;
+package ru.gb.lesson1.service;
 
-import ru.gb.entity.Product;
+import ru.gb.lesson1.entity.Product;
 
 import java.util.ArrayList;
 import java.util.List;

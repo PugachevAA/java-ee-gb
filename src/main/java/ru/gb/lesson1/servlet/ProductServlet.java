@@ -1,7 +1,6 @@
-package ru.gb.servlet;
+package ru.gb.lesson1.servlet;
 
-import ru.gb.entity.Product;
-import ru.gb.service.ProductService;
+import ru.gb.lesson1.service.ProductService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 @WebServlet(name = "ProductHttpServlet", urlPatterns = "/products")
 public class ProductServlet extends HttpServlet {
