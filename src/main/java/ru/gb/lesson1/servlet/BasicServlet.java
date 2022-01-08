@@ -1,4 +1,4 @@
-package ru.gb.servlet;
+package ru.gb.lesson1.servlet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
