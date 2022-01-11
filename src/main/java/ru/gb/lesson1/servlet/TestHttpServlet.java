@@ -1,17 +1,16 @@
-package ru.gb.servlet;
+package ru.gb.lesson1.servlet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-@WebServlet(name = "TestHttpServlet", urlPatterns = "testhttpservlet")
+//@WebServlet(name = "TestHttpServlet", urlPatterns = "testhttpservlet")
 public class TestHttpServlet extends HttpServlet {
     private static Logger logger = LoggerFactory.getLogger(TestHttpServlet.class);
 
