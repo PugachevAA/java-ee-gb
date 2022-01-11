@@ -1,5 +1,5 @@
 <%@ page import = "java.util.List" %>
-<%@ page import = "ru.gb.entity.Product" %>
+<%@ page import = "ru.gb.entity.lesson1.Product" %>
 <%@ page contentType = "text/html;charset=UTF-8" language="java" %>
 
 <html>
