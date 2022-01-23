@@ -9,7 +9,7 @@ import ru.gb.lesson2.homework.impl.MainProductRepository;
 import ru.gb.lesson2.homework.interfaces.Cart;
 import ru.gb.lesson2.homework.interfaces.ProductRepository;
 
-import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ConsoleClient {
@@ -69,7 +69,13 @@ public class ConsoleClient {
                 if (cart.showCartList() == null) {
                     System.out.println("Товара с таким id нет в корзине, повторите ввод:");
                 } else {
-                    cart.deleteProduct(id);
+                    System.out.println("Введите количество:");
+                    str = scanner.nextLine();
+                    if ("/cancel".equals(str)) {
+                        return;
+                    }
+                    int count = Integer.parseInt(str);
+                    cart.deleteProduct(id, count);
                     return;
                 }
             } catch (NumberFormatException e) {
@@ -80,13 +86,13 @@ public class ConsoleClient {
     }
 
     private static void showCart() {
-        List<Product> cartList = cart.showCartList();
+        Map<Product, Integer> cartList = cart.showCartList();
         if (cartList.size() == 0) {
             System.out.println("Корзина пуста.");
         } else {
             System.out.println("В Вашей корзине:");
-            for (Product p : cartList) {
-                System.out.println(p.getInfo());
+            for (Map.Entry<Product, Integer> entry : cartList.entrySet()) {
+                System.out.println(entry.getKey().getInfo() + " " + entry.getValue() + " шт.");
             }
         }
 

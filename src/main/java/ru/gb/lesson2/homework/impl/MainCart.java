@@ -8,20 +8,21 @@ import ru.gb.lesson2.homework.entity.Product;
 import ru.gb.lesson2.homework.interfaces.Cart;
 import ru.gb.lesson2.homework.interfaces.ProductRepository;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class MainCart implements Cart {
-    List<Product> cartList;
+    Map<Product, Integer> cartList;
 
     @Autowired
     ProductRepository pr;
 
     public MainCart() {
-        this.cartList = new ArrayList<>();
+        this.cartList = new HashMap<Product, Integer>() {
+        };
     }
 
     @Override
@@ -29,19 +30,24 @@ public class MainCart implements Cart {
         Product product = pr.getProduct(id);
 
         if (product != null) {
-            for (int i = 0; i < count; i++) {
-                cartList.add(pr.getProduct(id));
-            }
+            cartList.put(pr.getProduct(id), count);
         }
     }
 
     @Override
-    public List<Product> showCartList() {
-        return Collections.unmodifiableList(cartList);
+    public Map<Product, Integer> showCartList() {
+        return Collections.unmodifiableMap(cartList);
     }
 
     @Override
-    public void deleteProduct(int id) {
-        cartList.removeIf(product -> product.getId() == id);
+    public void deleteProduct(int id, int count) {
+        if (cartList.get(pr.getProduct(id)) != null) {
+            int countInCart = cartList.get(pr.getProduct(id));
+            if (count < countInCart) {
+                cartList.replace(pr.getProduct(id), countInCart, countInCart-count);
+            } else {
+                cartList.remove(pr.getProduct(id));
+            }
+        }
     }
 }

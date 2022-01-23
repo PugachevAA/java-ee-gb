@@ -72,16 +72,4 @@ public class MessageController {
         model.addAttribute("message", message);
         return "create-message";
     }
-//    private final MessageProvider messageProvider;
-//
-//    @RequestMapping
-//    public String printMessage(Model model) {
-//        model.addAttribute("msg", messageProvider.getMessage());
-//        return "message";
-//    }
-//
-//    @ModelAttribute("info")
-//    public String info() {
-//        return "Additional information";
-//    }
 }
