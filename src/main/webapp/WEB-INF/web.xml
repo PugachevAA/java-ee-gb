@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>BasicServlet</servlet-name>
-        <servlet-class>ru.gb.servlet.BasicServlet</servlet-class>
+        <servlet-class>ru.gb.lesson1.servlet.BasicServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BasicServlet</servlet-name>
